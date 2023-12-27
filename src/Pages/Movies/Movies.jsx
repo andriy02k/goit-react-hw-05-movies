@@ -12,6 +12,7 @@ const Movies = () => {
     useEffect(() => {
         const query = searchParams.get('query');
         if (!query) return;
+        setSearchQuery(query);
         getSearchMovie(query)
             .then(resp => setMovies(resp))
             .catch (error => console.log(error)) 
@@ -24,7 +25,6 @@ const Movies = () => {
     const handleSubmit = e => { 
         e.preventDefault();
         setSearchParams({ query: searchQuery });
-        setSearchQuery('');
     }
 
     return (
