@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from 'react'
-import { useParams, NavLink, useLocation, useNavigate, Outlet } from 'react-router-dom';
+import React, {useState, useEffect, useRef} from 'react'
+import { useParams, NavLink, Link, useLocation, Outlet } from 'react-router-dom';
 import { fetchMovie } from '../../api/getItem'
 import defaultImg from '../../images/image.webp'
-import Header from 'components/Header/Header';
 
 const MovieDetails = () => {
 
   const { moviesId } = useParams();
   const [singleMovie, setSingleMovie] = useState(null);
-  const { state } = useLocation();
-  const navigate = useNavigate();
+  const location = useLocation();
+  const backLink = useRef(location.state?.location);
 
   useEffect(() => {
       fetchMovie(moviesId)
@@ -21,10 +20,6 @@ const MovieDetails = () => {
         });
   }, [moviesId])
   
-  const handelBack = () => {
-    navigate(state ?? '/');
-  }  
-  
   if (!singleMovie) {
     return <p>404 Not Found</p>;
   }
@@ -32,8 +27,8 @@ const MovieDetails = () => {
   const { title, poster_path, release_date, vote_average, overview, genres } = singleMovie;
   return (
     <>
-      <Header/>
-      <button onClick={handelBack}>go back</button>
+      {/* <button onClick={handelBack}>go back</button> */}
+      <Link to={backLink.current ?? '/'}>go back</Link>
       <div>
         <img src={
             poster_path ?

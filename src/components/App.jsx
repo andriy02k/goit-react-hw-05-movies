@@ -12,19 +12,16 @@ const App = () => {
 	return (
 		<Suspense fallback={<>Loading...</>}>
 			<Routes>
-				<Route path='/' element={<Home />}>
-					<Route index element={<Header/>}/>
-				</Route>
-				<Route path="/movies/:moviesId" element={<MovieDetails />}>
-					{/* <Route index element={<Header/>}/> */}
-					<Route path="cast" element={<Cast />} />
-					<Route path="reviews" element={<Reviews />} />
-				</Route>
-				<Route path='/movies' element={<Movies />}>
-					<Route index element={<Header/>}/>
-				</Route>
+				<Route path="/" element={<Header />}>
+					<Route index element={<Home />} />
+					<Route path="/movies/:moviesId" element={<MovieDetails />}>
+						<Route path="cast" element={<Cast />} />
+						<Route path="reviews" element={<Reviews />} />
+					</Route>
+					<Route path="/movies" element={<Movies />} />
+				</Route>  
 				<Route path='*' element={<h1>404</h1>} />
-			</Routes>
+      		</Routes>
 		</Suspense>
   	);
 };

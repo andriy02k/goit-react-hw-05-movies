@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from "react-router-dom";
 import MovieList from 'components/MovieList/MovieList';
 import {trendMoviesFetch} from '../../api/getItem'
   
@@ -18,7 +17,6 @@ const Home = () => {
   
   return (
     <>
-      <Outlet />
       <MovieList movies={trendFilms} />
     </>
   )

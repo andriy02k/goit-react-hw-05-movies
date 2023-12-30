@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSearchParams, Outlet } from 'react-router-dom'
+import { useSearchParams, } from 'react-router-dom'
 import {getSearchMovie} from '../../api/getItem'
 import MovieList from 'components/MovieList/MovieList';
 import Form from 'components/Form/Form';
@@ -29,7 +29,7 @@ const Movies = () => {
 
     return (
         <>
-            <Outlet />
+            {/* <Outlet /> */}
             <Form
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
