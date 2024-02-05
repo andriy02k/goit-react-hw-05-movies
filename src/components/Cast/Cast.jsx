@@ -28,8 +28,8 @@ const Cast = () => {
                         height="175"
                         className={css.img}
                     />
-                    <p className={css.text}>{name}</p>
-                    <p className={css.text}>Character:{character}</p>
+                    <p className='w-full text-black'>{name}</p>
+                    <p className='w-full text-black'>Character:{character}</p>
                 </li>
               )
           })} 

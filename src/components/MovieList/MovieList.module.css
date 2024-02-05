@@ -2,8 +2,10 @@
     padding: 42px;
 
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 18px;
+    
 }
 
 .item {
@@ -12,12 +14,9 @@
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: #fff;
+    width: calc((100% - 5px) / 6);
 }
 
 .link {
     color: #80619c;
-}
-
-.title {
-
 }
